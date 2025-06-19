@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What is AI – AI Info Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3f2ef;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 30px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0a66c2;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      width: 24px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      background-color: #000;
+      border-radius: 2px;
+      width: 100%;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:not([href="sign In.html"]) {
+      color: #333;
+    }
+
+    .nav-links a.home {
+      font-weight: bold;
+      color: #004182;
+    }
+
+    .nav-links a[href="sign In.html"] {
+      background-color: #0a66c2;
+      color: white;
+      border: 2px solid #0a66c2;
+      padding: 6px 14px;
+    }
+
+    .nav-links a[href="sign In.html"]:hover {
+      background-color: white;
+      color: #0a66c2;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 65px;
+      right: 20px;
+      width: 200px;
+      background-color: #fff;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 9999;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar a {
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar a:hover {
+      color: #0a66c2;
+    }
+
+    .sidebar a.home {
+      font-weight: bold;
+      color: #004182;
+    }
+
+    .sidebar a[href="sign In.html"] {
+      background-color: #0a66c2;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .sidebar.open {
+      display: flex;
+    }
+
+    .main-section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 110px 30px 50px;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .text-content {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .text-content h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #0a66c2;
+    }
+
+    .text-content h3 {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #004182;
+    }
+
+    .text-content p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-top: 10px;
+      color: #444;
+    }
+
+    .examples {
+      margin-top: 20px;
+    }
+
+    .examples ul {
+      list-style: none;
+    }
+
+    .examples li {
+      padding: 10px 0;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .examples img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .image-content {
+      flex: 1;
+      min-width: 260px;
+      text-align: center;
+    }
+
+    .image-content img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+      background-color: #fff;
+      padding: 25px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #0a66c2;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .main-section {
+        flex-direction: column;
+        padding: 100px 20px 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">AI Info Website</a>
+    <div class="hamburger" onclick="toggleSidebar()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="home">Home</a>
+      <a href="what is ai .html">What is AI?</a>
+      <a href="Types of Ai.html">Types of AI</a>
+      <a href="tools.html">AI Tools</a>
+      <a href="contect.html">Contact</a>
+      <a href="sign In.html">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="index.html" class="home">Home</a>
+    <a href="what is ai .html">What is AI?</a>
+    <a href="Types of Ai.html">Types of AI</a>
+    <a href="tools.html">AI Tools</a>
+    <a href="contect.html">Contact</a>
+    <a href="sign In.html">Sign In</a>
+  </div>
+
+  <section class="main-section">
+    <div class="text-content">
+      <h1>What is Artificial Intelligence?</h1>
+      <p>
+        Artificial Intelligence, or AI, is the ability of a computer or machine to mimic the capabilities of the human mind—learning from experiences, understanding language, recognizing patterns, solving problems, and making decisions.
+      </p>
+      <h3>Why is AI So Powerful?</h3>
+      <p>
+        AI doesn’t just perform tasks—it improves itself through data. That’s why AI is used in everything from voice assistants to self-driving cars, from medical diagnostics to financial forecasting.
+      </p>
+      <h3>Real Examples of AI You Use Every Day:</h3>
+      <div class="examples">
+        <ul>
+          <li><img src="7.png" alt="ChatGPT"> ChatGPT – Answers your questions like a human</li>
+          <li><img src="8.png" alt="Tesla"> Tesla Autopilot – Self-driving AI in cars</li>
+          <li><img src="11.png" alt="Alexa"> Siri – AI voice assistants in your home</li>
+          <li><img src="13.png" alt="Google Translate"> Google Translate – Understand any language instantly</li>
+          <li><img src="14.png" alt="YouTube"> YouTube & Netflix – Recommend the next video you'll love</li>
+        </ul>
+      </div>
+      <h3>The Future is Here</h3>
+      <p>
+        AI is already changing the world. In the future, it will help cure diseases, protect the planet, and make our lives smarter and easier. Learning about AI now puts you ahead of the curve.
+      </p>
+    </div>
+
+    <div class="image-content">
+      <img src="6.jpg" alt="AI Future">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 AI Info Website. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Contact Us</a>
+    </p>
+  </footer>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("open");
+    }
+  </script>
+
+</body>
+</html>

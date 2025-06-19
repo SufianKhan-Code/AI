@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tools – AI Info Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f2ef;
+      color: #222;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0a66c2;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s ease;
+      padding: 6px 10px;
+      border-radius: 20px;
+    }
+
+    .nav-links a:not([href="sign In.html"]) {
+      color: #333;
+    }
+
+    .nav-links a:not([href="sign In.html"]):hover {
+      color: #0a66c2;
+    }
+
+    .nav-links a.home {
+      font-weight: bold;
+      color: #004182;
+    }
+
+    .nav-links a[href="sign In.html"] {
+      background-color: #0a66c2;
+      color: white;
+      border: 2px solid #0a66c2;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a[href="sign In.html"]:hover {
+      background-color: white;
+      color: #0a66c2;
+      border: 2px solid #0a66c2;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #333;
+      margin: 4px 0;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .page-content {
+      padding: 100px 40px 60px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .page-content h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #0a66c2;
+    }
+
+    .page-content p {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .tool {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 50px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .tool:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .tool-text,
+    .tool-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .tool-text h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #004182;
+    }
+
+    .tool-text p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .tool-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 80px;
+    }
+
+    footer a {
+      color: #0a66c2;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 200px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .page-content {
+        padding: 90px 20px 40px;
+      }
+
+      .page-content h1 {
+        font-size: 28px;
+      }
+
+      .tool {
+        flex-direction: column !important;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .tool-text h2 {
+        font-size: 22px;
+      }
+
+      .tool-text p {
+        font-size: 15px;
+      }
+
+      .tool-image img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      footer {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="#" class="logo">AI Info Website</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="home">Home</a>
+      <a href="what is ai .html">What is AI?</a>
+      <a href="Types of Ai.html">Types of AI</a>
+      <a href="tools.html">AI Tools</a>
+      <a href="contect.html">Contact</a>
+      <a href="sign In.html">Sign In</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <h1>Top AI Tools Changing the World</h1>
+    <p>
+      Artificial Intelligence has powered a wave of exciting tools that are transforming the way we work, learn,
+      create, and communicate. Here's a look at some of the most powerful and user-friendly AI tools making a real
+      difference.
+    </p>
+
+    <div class="tool">
+      <div class="tool-text">
+        <h2>ChatGPT</h2>
+        <p>Developed by OpenAI, ChatGPT is a conversational AI model that can write essays, generate ideas, help
+          with homework, and even code. It's like having a smart assistant who understands natural language
+          and can respond instantly.</p>
+      </div>
+      <div class="tool-image">
+        <img src="19.jpg" alt="ChatGPT AI Tool">
+      </div>
+    </div>
+
+    <div class="tool">
+      <div class="tool-text">
+        <h2>DALL·E</h2>
+        <p>This creative AI from OpenAI can turn text prompts into stunning images. Want a painting of a cat
+          flying a spaceship? DALL·E will generate it. It's an artist, powered by artificial intelligence.</p>
+      </div>
+      <div class="tool-image">
+        <img src="20.jpg" alt="DALL-E AI Art">
+      </div>
+    </div>
+
+    <div class="tool">
+      <div class="tool-text">
+        <h2>Grammarly</h2>
+        <p>Grammarly uses AI to improve your writing by fixing grammar, suggesting better words, and even
+          improving tone. Whether you're a student or professional, it's a powerful tool for clear
+          communication.</p>
+      </div>
+      <div class="tool-image">
+        <img src="21.png" alt="Grammarly AI Writing Tool">
+      </div>
+    </div>
+
+    <div class="tool">
+      <div class="tool-text">
+        <h2>Midjourney</h2>
+        <p>Midjourney is an advanced AI tool that creates surreal and beautiful artwork from text. It’s widely
+          used by designers and creators for concept art, marketing visuals, and unique content generation.
+        </p>
+      </div>
+      <div class="tool-image">
+        <img src="22.jpg" alt="Midjourney AI Art Tool">
+      </div>
+    </div>
+
+    <div class="tool">
+      <div class="tool-text">
+        <h2>Notion AI</h2>
+        <p>Notion AI makes note-taking smarter. It helps summarize long articles, rewrite content, brainstorm
+          ideas, and automate tasks. It’s an amazing productivity booster for teams and individuals alike.</p>
+      </div>
+      <div class="tool-image">
+        <img src="23.jpg" alt="Notion AI Productivity Tool">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AI Info Website. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Contact Us</a>
+    </p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+  </script>
+</body>
+
+</html>

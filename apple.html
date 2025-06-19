@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in with Apple - AI Info Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f2f2f2;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auth-box {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .auth-box h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .auth-box p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .apple-signin-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            width: 100%;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .apple-signin-btn img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-box">
+        <h2>Sign in with Apple</h2>
+        <p>AI Info Website is requesting your name and email address.</p>
+
+        <a href="https://idmsa.apple.com/IDMSWebAuth/signin?appIdKey=891bd3417a7776362562d2197f89480a8547b108fd934911bcbea0110d07f757&path=%2Faccount%2F&rv=1"
+            class="apple-signin-btn">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/mac-os.png" alt="Apple icon" />
+            Continue with Apple
+        </a>
+
+        <div class="footer">
+            By continuing, you agree to share this info with AI Info Website.
+        </div>
+    </div>
+</body>
+
+</html>

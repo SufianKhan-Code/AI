@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Types of AI – AI Info Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f2ef;
+      color: #222;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0a66c2;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s ease;
+      padding: 6px 10px;
+      border-radius: 20px;
+    }
+
+    .nav-links a:not([href="sign In.html"]) {
+      color: #333;
+    }
+
+    .nav-links a:not([href="sign In.html"]):hover {
+      color: #0a66c2;
+    }
+
+    .nav-links a.home {
+      font-weight: bold;
+      color: #004182;
+    }
+
+    .nav-links a[href="sign In.html"] {
+      background-color: #0a66c2;
+      color: white;
+      border: 2px solid #0a66c2;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a[href="sign In.html"]:hover {
+      background-color: white;
+      color: #0a66c2;
+      border: 2px solid #0a66c2;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #333;
+      margin: 4px 0;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .page-content {
+      padding: 100px 40px 60px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .page-content h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #0a66c2;
+    }
+
+    .page-content p {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .type-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+
+    .type-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .type-text h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #004182;
+    }
+
+    .type-text p {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .type-img {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .type-img img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 80px;
+    }
+
+    footer a {
+      color: #0a66c2;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 200px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .type-section {
+        flex-direction: column;
+      }
+
+      .page-content {
+        padding: 90px 20px 40px;
+      }
+
+      .page-content h1 {
+        font-size: 28px;
+      }
+
+      footer {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">AI Info Website</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="home">Home</a>
+      <a href="what is ai .html">What is AI?</a>
+      <a href="Types of Ai.html">Types of AI</a>
+      <a href="tools.html">AI Tools</a>
+      <a href="contect.html">Contact</a>
+      <a href="sign In.html">Sign In</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <h1>Types of Artificial Intelligence</h1>
+    <p>
+      AI is not a single technology. It's a broad field, and experts categorize it based on its capabilities and
+      functionalities. Knowing the different types of AI helps us understand what machines can do today—and what
+      they might do tomorrow.
+    </p>
+
+    <!-- Type 1 -->
+    <div class="type-section">
+      <div class="type-text">
+        <h2>1. Narrow AI (Weak AI)</h2>
+        <p>
+          Narrow AI is the most common type of AI used today. It’s designed to perform a single task—like
+          recognizing faces, recommending movies, or answering questions. Siri, ChatGPT, Google Search, and
+          Netflix recommendations are all examples of Narrow AI. It may seem smart, but it only works within a
+          limited context.
+        </p>
+      </div>
+      <div class="type-img">
+        <img src="15.jpg" alt="Narrow AI Example" />
+      </div>
+    </div>
+
+    <!-- Type 2 -->
+    <div class="type-section">
+      <div class="type-text">
+        <h2>2. General AI (Strong AI)</h2>
+        <p>
+          General AI is still a goal—not reality. It refers to a machine with human-level intelligence.
+          General AI can learn anything, reason, solve problems, and even express emotions—just like a human
+          being. Imagine a robot that can learn to cook, play chess, and have a deep conversation—all by
+          itself.
+        </p>
+      </div>
+      <div class="type-img">
+        <img src="16.jpg" alt="General AI Concept" />
+      </div>
+    </div>
+
+    <!-- Type 3 -->
+    <div class="type-section">
+      <div class="type-text">
+        <h2>3. Superintelligent AI</h2>
+        <p>
+          Superintelligent AI is a theoretical future AI that surpasses human intelligence in every field. It
+          would outperform the best scientists, strategists, and innovators. While exciting, it also raises
+          questions about control, safety, and ethics. Movies like “Ex Machina” or “Her” show fictional super
+          AI—but experts are already preparing for it.
+        </p>
+      </div>
+      <div class="type-img">
+        <img src="17.jpg" alt="Super AI Imaginary" />
+      </div>
+    </div>
+
+    <div style="margin-top: 50px;">
+      <h2 style="color: #004182;">Why Understanding These Types Matters</h2>
+      <p style="margin-top: 10px;">
+        Understanding these AI types helps us build smarter, safer, and more responsible technologies. From
+        simple automation to future thinking machines—every innovation we use or build starts with the right
+        understanding.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AI Info Website. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Contact Us</a>
+    </p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Info Website – Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3f2ef;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0a66c2;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 20px;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:not([href="sign In.html"]) {
+      color: #333;
+    }
+
+    .nav-links a:not([href="sign In.html"]):hover {
+      color: #0a66c2;
+    }
+
+    .nav-links a.home {
+      font-weight: bold;
+      color: #004182;
+    }
+
+    .nav-links a[href="sign In.html"] {
+      background-color: #0a66c2;
+      color: white;
+      border: 2px solid #0a66c2;
+      padding: 6px 14px;
+    }
+
+    .nav-links a[href="sign In.html"]:hover {
+      background-color: white;
+      color: #0a66c2;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #333;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Sign In Main */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 90px;
+      padding: 20px;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .login-container h3 {
+      font-size: 24px;
+      color: #000000de;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .login-container input[type="email"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .login-container a {
+      font-size: 14px;
+      color: #0a66c2;
+      text-decoration: none;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+
+    .checkbox {
+      margin: 15px 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .signin-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #0a66c2;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+
+    .signin-btn:hover {
+      background-color: #004182;
+    }
+
+    .or-separator {
+      text-align: center;
+      margin: 15px 0;
+      color: #666;
+      position: relative;
+    }
+
+    .or-separator span {
+      background-color: #fff;
+      padding: 0 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .or-separator::before {
+      content: "";
+      height: 1px;
+      width: 100%;
+      background-color: #ccc;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: 0;
+    }
+
+    .social-signin a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #000;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .social-signin a:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 200px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#" class="logo">AI Info Website</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="home">Home</a>
+      <a href="what is ai .html">What is AI?</a>
+      <a href="Types of Ai.html">Types of AI</a>
+      <a href="tools.html">AI Tools</a>
+      <a href="contect.html">Contact</a>
+      <a href="sign In.html">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="login-container">
+      <h3>Sign in</h3>
+      <form action="#">
+        <input type="email" name="email" id="email" placeholder="Email or phone" required />
+        <input type="password" name="password" id="password" placeholder="Password" required />
+        <a href="forgot.html">Forgot password?</a>
+
+        <div class="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <label for="checkbox">Keep me logged in</label>
+        </div>
+
+        <button type="submit" class="signin-btn">Sign in</button>
+      </form>
+
+      <div class="or-separator"><span>or</span></div>
+
+      <div class="social-signin">
+        <a href="google.html" class="google-btn">
+          <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google Icon" />
+          Sign in with Google
+        </a>
+        <a href="apple.html" class="apple-btn">
+          <img src="https://img.icons8.com/ios-filled/24/000000/mac-os.png" alt="Apple Icon" />
+          Sign in with Apple
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+</body>
+
+</html>

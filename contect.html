@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – AI Info Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f2ef;
+      color: #333;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0a66c2;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:not([href="sign In.html"]) {
+      color: #333;
+    }
+
+    .nav-links a:not([href="sign In.html"]):hover {
+      color: #0a66c2;
+    }
+
+    .nav-links a.home {
+      font-weight: bold;
+      color: #004182;
+    }
+
+    .nav-links a[href="sign In.html"] {
+      background-color: #0a66c2;
+      color: #fff;
+      border: 2px solid #0a66c2;
+      padding: 6px 14px;
+    }
+
+    .nav-links a[href="sign In.html"]:hover {
+      background-color: #fff;
+      color: #0a66c2;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #333;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      margin-top: 100px;
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .main-content h1 {
+      font-size: 40px;
+      color: #0a66c2;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .main-content p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .form-box {
+      flex: 1;
+      min-width: 300px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-box h2 {
+      margin-bottom: 20px;
+      color: #0a66c2;
+    }
+
+    .form-box input,
+    .form-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .form-box button {
+      background: #0a66c2;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .form-box button:hover {
+      background: #004182;
+    }
+
+    .map-box {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .map-box img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #555;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #0a66c2;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 200px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .contact-section {
+        flex-direction: column;
+      }
+
+      .main-content {
+        padding: 80px 20px;
+      }
+
+      .main-content h1 {
+        font-size: 28px;
+      }
+
+      footer {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="#" class="logo">AI Info Website</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="home">Home</a>
+      <a href="what is ai .html">What is AI?</a>
+      <a href="Types of Ai.html">Types of AI</a>
+      <a href="tools.html">AI Tools</a>
+      <a href="contect.html">Contact</a>
+      <a href="sign In.html">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <div class="main-content">
+    <h1>Get in Touch</h1>
+    <p>Have questions about AI? Want to collaborate or suggest improvements? We're just a message away.</p>
+
+    <div class="contact-section">
+      <div class="form-box">
+        <h2>Send Us a Message</h2>
+        <form action="https://formsubmit.co/muhammedsufianawan1@gmail.com" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="map-box">
+        <img src="24.jpg" alt="Map Location Placeholder" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AI Info Website. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Contact Us</a>
+    </p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+  </script>
+</body>
+
+</html>
